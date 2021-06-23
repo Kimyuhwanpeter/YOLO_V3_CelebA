@@ -5,3 +5,7 @@
 * box가 각 이미지당 1개씩 존재하기때문에 task가 더욱 간단해짐 (voc2007로 했을 때의 1 ~ 2 epochs 샘플 이미지와 비교해보았을 경우)
 
 ## Epoch 1 ~ 2
+| ![3000_1](https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/3000_1.jpg) | ![4000_2](https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/4000_2.jpg) |
+| ----------------------------------------------- | ----------------------------------------------- |
+| ![3500_0](https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/3500_0.jpg) | ![3500_9](https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/3500_9.jpg) |
+
