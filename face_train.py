@@ -10,20 +10,19 @@ import easydict
 import os
 import cv2
 
-yolo_anchors = np.array([(10, 13), (16, 30), (33, 23), (30, 61), (62, 45),
-                         (59, 119), (116, 90), (156, 198), (373, 326)],
-                        np.float32) / 416
+yolo_anchors = np.array([(0.14516129, 0.188), (0.24782608, 0.45401174), (0.23333333, 0.23641565),
+                         (0.675, 0.74827874), (0.37395832, 0.6447896), (0.30808082, 0.2969374),
+                         (0.38565022, 0.382), (0.470389, 0.468), (0.5615616, 0.576)], dtype=np.float32)
+# yolo_anchors = np.array([(10, 13), (16, 30), (33, 23), (30, 61), (62, 45),
+#                          (59, 119), (116, 90), (156, 198), (373, 326)],
+#                         np.float32) / 416
 yolo_anchor_masks = np.array([[6, 7, 8], [3, 4, 5], [0, 1, 2]])
-
-label_list = []
-for i in range(1, 45):
-    label_list.append(i)
 
 FLAGS = easydict.EasyDict({"img_size": 416,
 
                            "batch_size": 10,
 
-                           "epochs": 50,
+                           "epochs": 200,
 
                            "num_classes": 40,
 
@@ -31,25 +30,25 @@ FLAGS = easydict.EasyDict({"img_size": 416,
                            
                            "max_size": 100,
                            
-                           "tr_img_path": "D:/[1]DB/[3]detection_DB/Celeb/archive/img_celeba/img_celeba.7z/img_celeba",
+                           "tr_img_path": "/content/train",
                            
-                           "tr_txt_path": "D:/[1]DB/[3]detection_DB/Celeb/archive/label/train.txt",
+                           "tr_txt_path": "/content/val.txt",
 
                            #"te_img_path": "D:/[1]DB/[3]detection_DB/voc2007/VOCtest_06-Nov-2007/VOCdevkit/VOC2007/JPEGImages",
                            
                            #"te_txt_path": "D:/[1]DB/[3]detection_DB/voc2007/VOCtest_06-Nov-2007/VOCdevkit/VOC2007/xml_to_text",
 
-                           "class_name": "D:/[1]DB/[3]detection_DB/Celeb/archive/label/class_name.txt",
+                           "class_name": "/content/class_name.txt",
                            
                            "pre_checkpoint": False,
                            
-                           "pre_checkpoint_path": "",
+                           "pre_checkpoint_path": "/content/drive/My Drive/detection/face_detection/CelebA/checkpoint/20",
                            
-                           "save_checkpoint": "",
+                           "save_checkpoint": "/content/drive/My Drive/detection/face_detection/CelebA/checkpoint",
                            
-                           "save_sample": "C:/Users/Yuhwan/Pictures/img",
+                           "save_sample": "/content/drive/My Drive/detection/face_detection/CelebA/sample_images",
                            
-                           "load_weight": "C:/Users/Yuhwan/Downloads/ck/yolov3.tf"})
+                           "load_weight": "/content/drive/My Drive/detection/ck/yolov3.tf"})
 
 optim = tf.keras.optimizers.Adam(FLAGS.lr)
 
@@ -155,6 +154,7 @@ def main():
 
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
+            print("Restored!!!!!!!!!!!!!!!!!!!!")
 
     class_name = np.loadtxt(FLAGS.class_name, dtype=np.str, skiprows=0, usecols=0)
 
@@ -210,19 +210,19 @@ def main():
             if count % 500 == 0:
                 test_sample(model, batch_images, class_name, count)
 
-            #if count % 1000 == 0:
-            #    model_dir = FLAGS.save_checkpoint
+            if count % 1000 == 0:
+               model_dir = FLAGS.save_checkpoint
 
-            #    folder_name = int(count/1000)
-            #    folder_neme_str = '%s/%s' % (model_dir, folder_name)
+               folder_name = int(count/1000)
+               folder_neme_str = '%s/%s' % (model_dir, folder_name)
 
-            #    if not os.path.isdir(folder_neme_str):
-            #        print("make {} folder to save checkpoint".format(folder_name))
-            #        os.makedirs(folder_neme_str)
+               if not os.path.isdir(folder_neme_str):
+                   print("make {} folder to save checkpoint".format(folder_name))
+                   os.makedirs(folder_neme_str)
 
-            #    checkpoint = tf.train.Checkpoint(model=model,optim=optim)
-            #    checkpoint_dir = folder_neme_str + "/" + "YOLO3_{}_steps.ckpt".format(count + 1)
-            #    checkpoint.save(checkpoint_dir)
+               checkpoint = tf.train.Checkpoint(model=model,optim=optim)
+               checkpoint_dir = folder_neme_str + "/" + "YOLO3_{}_steps.ckpt".format(count + 1)
+               checkpoint.save(checkpoint_dir)
 
 
 
