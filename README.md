@@ -11,4 +11,4 @@
 | ![3500_0](https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/3500_0.jpg) | ![3500_9](https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/3500_9.jpg) |
 
 ## Epoch 15 (논문 실험으로 인해 컴퓨터자원 부족.. 노트북으로만 15 epoch 까지 학습해보고 내 얼굴로 테스트)
-
+<img width="80%" src="https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/test.avi">
