@@ -11,7 +11,9 @@
 | ![3500_0](https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/3500_0.jpg) | ![3500_9](https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/3500_9.jpg) |
 
 ## Epoch 15 (논문 실험으로 인해 컴퓨터자원 부족.. 노트북으로만 15 epoch 까지 학습해보고 내 얼굴로 테스트)
-* <img width="60%" src="https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/test.gif"/>
+<img width="60%" src="https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/test.gif"/>
+<br/>
+
 * 왼쪽 및 오른쪽 얼굴을 가리면 검출이 안되는것으로 보아, 눈 주변이 주요 검출 성분
 * 입쪽도 가릴때는 검출이 안됨, 입 주변도 주요 검출 성분
 * 결론적으로 눈 및 입이 YOLO V3의 얼굴 검출에 있어, 중요한 성분으로 추측됨
