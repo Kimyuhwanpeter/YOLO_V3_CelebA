@@ -4,7 +4,7 @@
 * anchor box는 따로 구해서 사용했음(get_anchor.py)
 * box가 각 이미지당 1개씩 존재하기때문에 task가 더욱 간단해짐 (voc2007로 했을 때의 1 ~ 2 epochs 샘플 이미지와 비교해보았을 경우)
 * 학습이 잘되고있음. 시간이 되면 실시간으로 테스트해볼 예정 (지금은 논문 실험들을 동시에 하고있기 때문에 촉박함)
-* 15 epochs 까지 학습한 weight --> [클릭](https://drive.google.com/drive/folders/12eM1ra0kB370H5yxvDEplHGw7FPGazQt?usp=sharing)
+* 15 epochs 까지 학습한 weight --> [Download](https://drive.google.com/drive/folders/12eM1ra0kB370H5yxvDEplHGw7FPGazQt?usp=sharing)
 
 ## Epoch 1 ~ 2
 | ![3000_1](https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/3000_1.jpg) | ![4000_2](https://github.com/Kimyuhwanpeter/YOLO_V3_CelebA/blob/main/4000_2.jpg) |
